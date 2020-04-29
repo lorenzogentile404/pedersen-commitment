@@ -24,8 +24,9 @@ class verifier:
 
         G = list(set(G))
         print("Order of G = {i^r mod q | i in Z_q*} is " + str(len(G)) + " (must be equal to p).")
-                     
-        g = random.choice(G)
+
+        # Since the order of G is prime, any element of G except 1 is a generator
+        g = random.choice(list(filter(lambda g: g != 1, G)))
         print("g = ",g)
         
         s = number.getRandomRange(1, q-1)
