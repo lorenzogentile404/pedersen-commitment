@@ -54,11 +54,11 @@ class verifier:
         return cSum % q
         
 class prover: 
-    def commit(self, param, x):
+    def commit(self, param, m):
         q, g, h = param
         
         r = number.getRandomRange(1, q-1)
-        c = (pow(g,x,q) * pow(h,r,q)) % q
+        c = (pow(g,m,q) * pow(h,r,q)) % q
         return c, r
     
 security = 10
