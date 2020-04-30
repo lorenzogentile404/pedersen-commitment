@@ -24,16 +24,15 @@ class verifier:
 
         G = list(set(G))
         print("Order of G = {i^r mod q | i in Z_q*} is " + str(len(G)) + " (must be equal to p).")
-
+        
         # Since the order of G is prime, any element of G except 1 is a generator
-        g = random.choice(list(filter(lambda g: g != 1, G)))
+        g = random.choice(list(filter(lambda e: e != 1, G)))
         print("g = ",g)
-        
-        s = number.getRandomRange(1, q-1)
-        print("s = ",s)
-        
-        h = pow(g,s,q) # g^s mod q
+                
+        h = random.choice(list(filter(lambda e: e != 1 and e != g, G)))
         print("h = ",h)
+        
+        # g and h are elements of G such that nobody knows math.log(h, g) (log of h base g)
            
         return q,g,h
 
